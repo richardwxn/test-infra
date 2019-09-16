@@ -313,12 +313,12 @@ postsubmits:
       preset-service-account: "true"
     spec:
       containers:
-        - <<: *istio_container_with_kind
-          command:
-            - entrypoint
-            - scripts/get_tools_repo.sh
-            - scripts/run-test.sh
-            - prow/perf_benchmark_test.sh
+      - <<: *istio_container_with_kind
+        command:
+        - entrypoint
+        - scripts/get_tools_repo.sh
+        - scripts/run-test.sh
+        - prow/perf_benchmark_test.sh
       nodeSelector:
         testing: test-pool
 

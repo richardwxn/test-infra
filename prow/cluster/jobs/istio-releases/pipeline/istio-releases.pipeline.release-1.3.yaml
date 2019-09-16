@@ -321,7 +321,7 @@ postsubmits:
               - prow/perf_benchmark_test.sh
         nodeSelector:
           testing: test-pool
-          
+
     - name: release-monthly
       <<: *job_template
       annotations:
