@@ -62,6 +62,30 @@ jobs:
     - name: TEST_USE_OPERATOR
       value: "true"
 
+  - name: integ-pilot-k8s-tests-controller
+    type: presubmit
+    command: [entrypoint, prow/integ-suite-kind.sh, test.integration.pilot.kube.presubmit]
+    requirements: [kind]
+    env:
+      - name: TEST_USE_OPERATOR_CONTROLLER
+        value: "true"
+
+  - name: integ-security-k8s-tests-controller
+    type: presubmit
+    command: [entrypoint, prow/integ-suite-kind.sh, test.integration.security.kube.presubmit]
+    requirements: [kind]
+    env:
+      - name: TEST_USE_OPERATOR_CONTROLLER
+        value: "true"
+
+  - name: integ-telemetry-k8s-tests-controller
+    type: presubmit
+    command: [entrypoint, prow/integ-suite-kind.sh, test.integration.telemetry.kube.presubmit]
+    requirements: [kind]
+    env:
+      - name: TEST_USE_OPERATOR_CONTROLLER
+        value: "true"
+
   - name: integ-distroless-k8s-tests
     command: [entrypoint, prow/integ-suite-kind.sh, test.integration.kube.reachability]
     requirements: [kind]
